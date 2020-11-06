@@ -1,0 +1,11 @@
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: E5E5E5;
+  font-family: "Georgia", sans-serif;
+  font-size: 1em;
+  margin: 0;
+}
