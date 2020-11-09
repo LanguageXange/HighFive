@@ -1,9 +1,10 @@
 import React from "react"
 import Layout from "../layout/layout"
-import { IntroContainer } from "../pageStyle/index.styles"
+import { IntroContainer, BgContainer } from "../pageStyle/index.styles"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import "bootstrap/dist/css/bootstrap.min.css"
+import bgimg from "../assets/sunset.jpg"
 
 import Head from "../components/header"
 const Home = ({ data }) => {
@@ -17,6 +18,7 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <Head title="Home" />
+
       <IntroContainer>
         <h1>About High Five</h1>
         <p>{bio.shortBio}</p>
@@ -38,6 +40,7 @@ const Home = ({ data }) => {
 
         <Img fixed={image.fixed}></Img>
         <p>{about}</p>
+        <BgContainer src={bgimg} />
       </IntroContainer>
     </Layout>
   )
