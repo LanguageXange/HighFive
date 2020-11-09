@@ -1,19 +1,14 @@
 import React from "react"
 import { FooterContainer } from "./footer.styles"
 import { graphql, useStaticQuery } from "gatsby"
+import linkedin from "../assets/linkedin.png"
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          author
-        }
-      }
-    }
-  `)
   return (
     <FooterContainer>
-      Website made with ❤️ by {data.site.siteMetadata.author}
+      Website made with ❤️ by Cindy L
+      <a href="https://www.linkedin.com/in/cindylinubc/" target="__blank">
+        <img src={linkedin} />
+      </a>
     </FooterContainer>
   )
 }

@@ -6,9 +6,16 @@ export const FooterContainer = styled.footer`
   bottom: 0;
   width: 100%;
   min-height: 50px;
-  background-color: black;
+  background-color: #000000;
   color: white;
   text-align: center;
   line-height: 50px;
   font-size: 20px;
+
+  img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+  }
 `
