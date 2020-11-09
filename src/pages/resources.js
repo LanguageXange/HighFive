@@ -15,10 +15,6 @@ import {
 
 // Todo: ThemeProvider to override styling
 const Resources = () => {
-  const style = {
-    backgroundColor: "lightblue",
-    color: "black",
-  }
   return (
     <Layout>
       <Head title="Resource" />
@@ -27,9 +23,7 @@ const Resources = () => {
           <Col sm={2}>
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
-                <Nav.Link eventKey="first" style={style}>
-                  Free
-                </Nav.Link>
+                <Nav.Link eventKey="first">Free</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="second">Paid</Nav.Link>
@@ -38,7 +32,7 @@ const Resources = () => {
           </Col>
           <Col sm={10}>
             <CardColumns>
-              {[1, 2, 3, 4, 5, 6].map((x, i) => {
+              {[1, 2].map((x, i) => {
                 return (
                   <Card key={i}>
                     <Card.Body>

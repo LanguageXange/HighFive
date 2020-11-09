@@ -21,7 +21,7 @@ const NavBar = () => {
           <span>{data.site.siteMetadata.title}</span>
         </NavLogo>
         <NavLink to="/" color="#4285f4">
-          About
+          Home
         </NavLink>
         <NavLink to="/blog" color="#db4437">
           Blog

@@ -1,20 +1,18 @@
 import React from "react"
 import Layout from "../layout/layout"
-import { IntroContainer, BgContainer } from "../pageStyle/index.styles"
+import {
+  IntroContainer,
+  BgContainer,
+  ImgContainer,
+} from "../pageStyle/index.styles"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import bgimg from "../assets/sunset.jpg"
 
 import Head from "../components/header"
 const Home = ({ data }) => {
-  const {
-    title,
-    bio,
-    image,
-    about,
-    shortBio,
-  } = data.allContentfulPerson.edges[0].node
+  const { bio, image, about } = data.allContentfulPerson.edges[0].node
   return (
     <Layout>
       <Head title="Home" />
@@ -24,21 +22,12 @@ const Home = ({ data }) => {
         <p>{bio.shortBio}</p>
 
         <ul>
-          <li>
-            <span>Blog:</span>
-            My learning journey & tips.
-          </li>
-          <li>
-            <span>Resources:</span>
-            Free & Paid resources.
-          </li>
-          <li>
-            <span> Light:</span>
-            Daily dose of positivity. Be inspired!
-          </li>
+          <li>My Coding Journey & Tips</li>
+          <li>Best Free & Paid Resources</li>
+          <li>Inspiration & Positivity</li>
         </ul>
 
-        <Img fixed={image.fixed}></Img>
+        <ImgContainer fixed={image.fixed}></ImgContainer>
         <p>{about}</p>
         <BgContainer src={bgimg} />
       </IntroContainer>
@@ -60,11 +49,10 @@ export const query = graphql`
           name
           about
           image {
-            fixed(width: 200) {
+            fixed(height: 130) {
               ...GatsbyContentfulFixed
             }
             fluid(maxWidth: 400) {
-              sizes
               src
             }
             title
