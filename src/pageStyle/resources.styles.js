@@ -1,12 +1,10 @@
 import styled from "styled-components"
-
-export const FreeContainer = styled.div`
-  width: 80%;
-  margin: 20px auto;
-  background-color: lightcyan;
-`
-export const PaidContainer = styled.div`
-  width: 80%;
-  margin: 20px auto;
-  background-color: orange;
+import Card from "react-bootstrap/Card"
+// customize card component !
+export const CardContainer = styled(Card)`
+  :hover {
+    box-shadow: 2px 2px 10px 5px #daddf8;
+    cursor: pointer;
+    transition: box-shadow 0.4s ease-in-out;
+  }
 `
