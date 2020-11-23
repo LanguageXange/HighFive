@@ -4,40 +4,34 @@ import Head from "../components/header"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Container, CardColumns, Carousel } from "react-bootstrap"
-import { QuoteContainer } from "../pageStyle/quote.styles"
+import { QuoteContainer, CarouselContainer } from "../pageStyle/quote.styles"
 
-// To-do: ensure same image dimension for the quotes
-
+// To do: make the quote responsive - challenge: the position is absolute
+// make width 100% for now
 const Quote = ({ data }) => {
   const quotes = data.allContentfulQuote.edges
 
   return (
     <Layout>
       <Head title="Quote" />
-      <Container fluid style={{ marginTop: "25px", width: "60%" }}>
-        <Carousel style={{ backgroundColor: "black" }}>
-          {quotes.map((quote, id) => {
-            return (
-              <Carousel.Item key={id} interval={4000}>
-                <img
-                  src={quote.node.quoteImage.fixed.src}
-                  alt="slides"
-                  className="w-50"
-                />
-                <QuoteContainer>
-                  <h1>{quote.node.topic}</h1>
-                  <p>{quote.node.description}</p>
-                </QuoteContainer>
-              </Carousel.Item>
-            )
-          })}
-        </Carousel>
 
-        <h2 style={{ textAlign: "center", marginTop: "25px" }}>
-          {" "}
-          Stay tuned for more updates
-        </h2>
-      </Container>
+      <CarouselContainer>
+        {quotes.map((quote, id) => {
+          return (
+            <Carousel.Item key={id} interval={5000}>
+              <img
+                src={quote.node.quoteImage.fixed.src}
+                alt="slides"
+                className="w-50"
+              />
+              <QuoteContainer>
+                <h2>{quote.node.topic}</h2>
+                <p>{quote.node.description}</p>
+              </QuoteContainer>
+            </Carousel.Item>
+          )
+        })}
+      </CarouselContainer>
     </Layout>
   )
 }

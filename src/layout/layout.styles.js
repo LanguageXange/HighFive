@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
-  width: 75%;
-  margin: 0 auto;
+export const PageContainer = styled.div`
+  /* width: 80%; */
+  /*margin: 0 auto;*/
+  margin: 0 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

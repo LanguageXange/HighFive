@@ -16,7 +16,6 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <Head title="Home" />
-
       <IntroContainer>
         <h1>About High Five</h1>
         <p>{bio.shortBio}</p>

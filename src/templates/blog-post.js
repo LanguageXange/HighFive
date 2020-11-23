@@ -10,7 +10,7 @@ const BlogPage = ({
   data: {
     contentfulBlogPost: {
       title,
-      text: { body },
+      text: { body, childMarkdownRemark },
       description: { description },
       publishDate,
     },
@@ -19,11 +19,14 @@ const BlogPage = ({
   return (
     <Layout>
       <Head title="Posts" />
-      <Container fluid style={{ marginTop: "25px" }}>
-        <h1>{title}</h1>
-        <p>{publishDate}</p>
-        <p> >>> To Be Updated! Stay tuned! </p>
-      </Container>
+
+      <h1>{title}</h1>
+      <p>{publishDate}</p>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: childMarkdownRemark.html,
+        }}
+      />
     </Layout>
   )
 }
@@ -35,6 +38,9 @@ export const query = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       text: childContentfulBlogPostBodyTextNode {
         body
+        childMarkdownRemark {
+          html
+        }
       }
       description {
         description

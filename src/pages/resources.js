@@ -29,70 +29,69 @@ const Resources = ({ data }) => {
   return (
     <Layout>
       <Head title="Resource" />
-      <Container fluid style={{ marginTop: "25px", marginBottom: "100px" }}>
-        <Row>
-          <Col sm={2}>
-            <Nav variant="pills" className="flex-column">
-              <Nav.Item>
-                <Nav.Link
-                  active={option === "all"}
-                  eventKey="all"
-                  onSelect={() => setOption("all")}
-                >
-                  All
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="free" onSelect={() => setOption("free")}>
-                  Free
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="paid" onSelect={() => setOption("paid")}>
-                  Paid
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Col>
-          <Col sm={10}>
-            <CardColumns>
-              {filterResources.map(
-                ({ node: { title, reasons, free, both, resourceUrl } }, id) => {
-                  return (
-                    <CardContainer key={id}>
-                      <Card.Body>
-                        <Card.Title>{title}</Card.Title>
 
-                        {free && !both ? (
-                          <Badge pill variant="success">
-                            Free
-                          </Badge>
-                        ) : free && both ? (
-                          <Badge pill variant="warning">
-                            Free/Paid
-                          </Badge>
-                        ) : (
-                          <Badge pill variant="danger">
-                            Paid
-                          </Badge>
-                        )}
-                        <Card.Text>{reasons}</Card.Text>
-                        <Button
-                          variant="outline-info"
-                          href={resourceUrl}
-                          target="__blank"
-                        >
-                          Link
-                        </Button>
-                      </Card.Body>
-                    </CardContainer>
-                  )
-                }
-              )}
-            </CardColumns>
-          </Col>
-        </Row>
-      </Container>
+      <Row>
+        <Col sm={2}>
+          <Nav variant="pills" className="flex-column">
+            <Nav.Item>
+              <Nav.Link
+                active={option === "all"}
+                eventKey="all"
+                onSelect={() => setOption("all")}
+              >
+                All
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="free" onSelect={() => setOption("free")}>
+                Free
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="paid" onSelect={() => setOption("paid")}>
+                Paid
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Col>
+        <Col sm={10}>
+          <CardColumns>
+            {filterResources.map(
+              ({ node: { title, reasons, free, both, resourceUrl } }, id) => {
+                return (
+                  <CardContainer key={id}>
+                    <Card.Body>
+                      <Card.Title>{title}</Card.Title>
+
+                      {free && !both ? (
+                        <Badge pill variant="success">
+                          Free
+                        </Badge>
+                      ) : free && both ? (
+                        <Badge pill variant="warning">
+                          Free/Paid
+                        </Badge>
+                      ) : (
+                        <Badge pill variant="danger">
+                          Paid
+                        </Badge>
+                      )}
+                      <Card.Text>{reasons}</Card.Text>
+                      <Button
+                        variant="outline-info"
+                        href={resourceUrl}
+                        target="__blank"
+                      >
+                        Link
+                      </Button>
+                    </Card.Body>
+                  </CardContainer>
+                )
+              }
+            )}
+          </CardColumns>
+        </Col>
+      </Row>
     </Layout>
   )
 }

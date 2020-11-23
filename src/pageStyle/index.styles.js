@@ -49,9 +49,9 @@ export const IntroContainer = styled.div`
 export const BgContainer = styled.img`
   z-index: -5;
   width: 100%;
+  height: 100%;
   position: absolute;
-  height: 90vh;
-  opacity: 0.6;
+  opacity: 0.4;
 `
 export const ImgContainer = styled(Img)`
   /*add custom styling for img if needed*/
