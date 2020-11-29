@@ -5,15 +5,14 @@ export const QuoteContainer = styled.div`
   font-size: 18px;
   text-align: center;
   position: absolute;
-
   align-self: center;
+  background-color: #000000;
   color: white;
-  background-color: black;
   top: 0;
   right: 0px;
-  width: 50%; /*so that image and text 50% each*/
+  width: 50.5%; /*so that image and text 50% each*/
   height: 100%;
-  padding: 11% 15px;
+  padding: 8% 15px;
 
   h2 {
     font-weight: 700;
@@ -31,8 +30,11 @@ export const QuoteContainer = styled.div`
 `
 
 export const CarouselContainer = styled(Carousel)`
-  /*change width here */
-  @media screen and (max-width: 800px) {
+  width: 75%;
+  margin: 0 auto;
+  border: 10px solid pink;
+  border-radius: 5px;
+  @media screen and (max-width: 780px) {
     width: 100%;
   } ;
 `

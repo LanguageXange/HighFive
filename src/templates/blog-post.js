@@ -1,10 +1,8 @@
 import React from "react"
 import Layout from "../layout/layout"
 import Head from "../components/header"
-import Container from "react-bootstrap/Container"
 
-// continue from 3:06:44
-// upload some images to contentful to test it out
+import { PostContainer, TitleContainer } from "./blog-post.styles"
 
 const BlogPage = ({
   data: {
@@ -19,14 +17,19 @@ const BlogPage = ({
   return (
     <Layout>
       <Head title="Posts" />
+      <PostContainer>
+        <TitleContainer>
+          <h1>{title}</h1>
+          <h5>{description}</h5>
+          <p>{publishDate}</p>
+        </TitleContainer>
 
-      <h1>{title}</h1>
-      <p>{publishDate}</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: childMarkdownRemark.html,
-        }}
-      />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: childMarkdownRemark.html,
+          }}
+        />
+      </PostContainer>
     </Layout>
   )
 }

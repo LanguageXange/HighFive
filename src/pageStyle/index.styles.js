@@ -16,6 +16,10 @@ export const IntroContainer = styled.div`
     width: 80%;
     font-size: 20px;
   }
+  span {
+    margin-top: 15px;
+    text-align: center;
+  }
   ul {
     display: flex;
     list-style-type: none;

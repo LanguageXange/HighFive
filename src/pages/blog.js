@@ -6,26 +6,28 @@ import Card from "react-bootstrap/Card"
 import {
   BlogLink,
   BlogCardContainer,
-  BlogCardColumns,
   BlogCol,
+  BlogCardColumns,
 } from "../pageStyle/blog.styles"
-import { Row, Col, Nav, Dropdown, Badge } from "react-bootstrap"
+import { Row, Col, Nav, CardColumns, Badge } from "react-bootstrap"
 
-// onClick event to filter the blog
-// filter by date functionality can wait use a drop down menu
-// extrapolate shared component into layout so that resources and blog will use the same component
-// how to sort blog post in descending order in contentful
-// blogs js nav bar need to be fixed
-
+// Create a shared component to be used in blog and resource js
+// helper filter function?
 const Blog = ({ data }) => {
-  const [option, setOption] = useState("js")
+  const [option, setOption] = useState("all")
   const posts = data.allContentfulBlogPost.edges
   const filterposts =
-    option === "js"
+    option === "all"
       ? posts
+      : option === "js"
+      ? posts.filter(post => post.node.tags.includes("javascript"))
       : option === "react"
       ? posts.filter(post => post.node.tags.includes("react"))
-      : posts.filter(post => post.node.tags.includes("learning"))
+      : posts.filter(
+          post =>
+            post.node.tags.includes("learning") ||
+            post.node.tags.includes("general")
+        )
   return (
     <Layout>
       <Head title="Blog" />
@@ -35,41 +37,34 @@ const Blog = ({ data }) => {
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
               <Nav.Link
+                active={option === "all"}
+                eventKey="all"
+                onSelect={() => setOption("all")}
+              >
+                All
+              </Nav.Link>
+              <Nav.Link
                 active={option === "js"}
                 eventKey="js"
                 onSelect={() => setOption("js")}
               >
-                JavaScript
+                JS
               </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
+
               <Nav.Link eventKey="react" onSelect={() => setOption("react")}>
                 React
               </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
+
               <Nav.Link
                 eventKey="learning"
                 onSelect={() => setOption("learning")}
               >
-                Learning
+                Learn
               </Nav.Link>
             </Nav.Item>
           </Nav>
-          {/* <Dropdown style={{ marginTop: "25px" }}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Filter By Month
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item active>Nov 2020</Dropdown.Item>
-              <Dropdown.Item>Dec 2020</Dropdown.Item>
-              <Dropdown.Item>Jan 2021</Dropdown.Item>
-              <Dropdown.Item>Feb 2021</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown> */}
         </Col>
-        <BlogCol sm={10}>
+        <Col sm={10}>
           <BlogCardColumns>
             {filterposts.map(
               (
@@ -93,7 +88,7 @@ const Blog = ({ data }) => {
               }
             )}
           </BlogCardColumns>
-        </BlogCol>
+        </Col>
       </Row>
     </Layout>
   )

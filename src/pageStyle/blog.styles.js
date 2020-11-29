@@ -18,12 +18,12 @@ export const BlogCardContainer = styled(CardContainer)`
 `
 
 export const BlogCardColumns = styled(CardColumns)`
-  /* @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1100px) {
     column-count: 2;
   }
   @media screen and (max-width: 776px) {
     column-count: 1;
-  } */
+  }
 `
 
 export const BlogCol = styled(Col)`

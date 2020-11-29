@@ -32,6 +32,7 @@ const Quote = ({ data }) => {
           )
         })}
       </CarouselContainer>
+      <p style={{ textAlign: "center" }}>Stay strong</p>
     </Layout>
   )
 }

@@ -3,8 +3,8 @@ import Card from "react-bootstrap/Card"
 // customize card component !
 export const CardContainer = styled(Card)`
   :hover {
-    box-shadow: 2px 2px 10px 5px #daddf8;
+    border: 1px solid #ff8000;
     cursor: pointer;
-    transition: box-shadow 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 `

@@ -16,7 +16,9 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <Head title="Home" />
+
       <IntroContainer>
+        <BgContainer src={bgimg} />
         <h1>About High Five</h1>
         <p>{bio.shortBio}</p>
 
@@ -27,8 +29,7 @@ const Home = ({ data }) => {
         </ul>
 
         <ImgContainer fixed={image.fixed}></ImgContainer>
-        <p>{about}</p>
-        <BgContainer src={bgimg} />
+        <span>{about}</span>
       </IntroContainer>
     </Layout>
   )

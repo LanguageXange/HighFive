@@ -3,19 +3,9 @@ import Layout from "../layout/layout"
 import Head from "../components/header"
 import { graphql } from "gatsby"
 import { CardContainer } from "../pageStyle/resources.styles"
-import {
-  Row,
-  Col,
-  Nav,
-  Container,
-  Card,
-  CardColumns,
-  Button,
-  Badge,
-} from "react-bootstrap"
+import { BlogCardColumns } from "../pageStyle/blog.styles"
+import { Row, Col, Nav, Card, Button, Badge } from "react-bootstrap"
 
-// Todo: ThemeProvider to override styling
-// Don't push too frequenly - be ware of the netlify limits
 const Resources = ({ data }) => {
   const resources = data.allContentfulResources.edges
   const [option, setOption] = useState("all")
@@ -41,13 +31,11 @@ const Resources = ({ data }) => {
               >
                 All
               </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
+
               <Nav.Link eventKey="free" onSelect={() => setOption("free")}>
                 Free
               </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
+
               <Nav.Link eventKey="paid" onSelect={() => setOption("paid")}>
                 Paid
               </Nav.Link>
@@ -55,7 +43,7 @@ const Resources = ({ data }) => {
           </Nav>
         </Col>
         <Col sm={10}>
-          <CardColumns>
+          <BlogCardColumns>
             {filterResources.map(
               ({ node: { title, reasons, free, both, resourceUrl } }, id) => {
                 return (
@@ -89,7 +77,7 @@ const Resources = ({ data }) => {
                 )
               }
             )}
-          </CardColumns>
+          </BlogCardColumns>
         </Col>
       </Row>
     </Layout>
