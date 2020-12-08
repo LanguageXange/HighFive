@@ -6,13 +6,11 @@ import Card from "react-bootstrap/Card"
 import {
   BlogLink,
   BlogCardContainer,
-  BlogCol,
   BlogCardColumns,
 } from "../pageStyle/blog.styles"
-import { Row, Col, Nav, CardColumns, Badge } from "react-bootstrap"
+import { Row, Col, Nav, Badge } from "react-bootstrap"
 
-// Create a shared component to be used in blog and resource js
-// helper filter function?
+// Create a shared component to be used in blog and resource js?
 const Blog = ({ data }) => {
   const [option, setOption] = useState("all")
   const posts = data.allContentfulBlogPost.edges
