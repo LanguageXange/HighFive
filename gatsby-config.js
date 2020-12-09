@@ -9,7 +9,7 @@ module.exports = {
   siteMetadata: {
     title: `HighFive`,
     author: `Cindy Lin`,
-    description: `resources, blog posts about web development`,
+    description: `free, paid resources, blog posts about front end web development`,
     siteUrl: `https://angry-agnesi-9760b0.netlify.app`,
   },
   plugins: [
