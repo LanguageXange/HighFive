@@ -1,7 +1,5 @@
 const dotenv = require("dotenv")
 
-// add images , react helmet
-
 if (process.env.ENVIRONMENT !== "production") {
   dotenv.config()
 }
@@ -12,6 +10,7 @@ module.exports = {
     title: `HighFive`,
     author: `Cindy Lin`,
     description: `resources, blog posts about web development`,
+    siteUrl: `https://angry-agnesi-9760b0.netlify.app`,
   },
   plugins: [
     `gatsby-transformer-remark`, // this is for markdown file
@@ -22,6 +21,12 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         displayName: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-html-attributes",
+      options: {
+        lang: "en",
       },
     },
     {

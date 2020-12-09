@@ -28,7 +28,7 @@ const Home = ({ data }) => {
           <li>Inspiration & Positivity</li>
         </ul>
 
-        <ImgContainer fixed={image.fixed}></ImgContainer>
+        <ImgContainer fixed={image.fixed} alt="background image"></ImgContainer>
         <span>{about}</span>
       </IntroContainer>
     </Layout>

@@ -2,12 +2,9 @@ import React from "react"
 import Layout from "../layout/layout"
 import Head from "../components/header"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import { Container, CardColumns, Carousel } from "react-bootstrap"
+import { Carousel } from "react-bootstrap"
 import { QuoteContainer, CarouselContainer } from "../pageStyle/quote.styles"
 
-// To do: make the quote responsive - challenge: the position is absolute
-// make width 100% for now
 const Quote = ({ data }) => {
   const quotes = data.allContentfulQuote.edges
 
@@ -21,7 +18,7 @@ const Quote = ({ data }) => {
             <Carousel.Item key={id} interval={5000}>
               <img
                 src={quote.node.quoteImage.fixed.src}
-                alt="slides"
+                alt="quote slides"
                 className="w-50"
               />
               <QuoteContainer>
@@ -56,28 +53,3 @@ export const query = graphql`
     }
   }
 `
-
-{
-  /* <Container fluid style={{ marginTop: "25px" }}>
-<CardColumns>
-  {[
-    "primary",
-    "success",
-    "info",
-    "warning",
-    "light",
-    "dark",
-    "danger",
-  ].map((v, i) => {
-    return (
-      <Card key={i} bg={v} text={v === "light" ? "dark" : "light"}>
-        <Card.Body>
-          <Card.Title>Positive Vibe</Card.Title>
-          <Card.Text>Quote</Card.Text>
-        </Card.Body>
-      </Card>
-    )
-  })}
-</CardColumns>
-</Container> */
-}
