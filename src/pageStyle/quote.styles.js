@@ -32,7 +32,7 @@ export const QuoteContainer = styled.div`
 export const CarouselContainer = styled(Carousel)`
   width: 75%;
   margin: 0 auto;
-  border: 10px solid pink;
+
   border-radius: 5px;
   @media screen and (max-width: 780px) {
     width: 100%;

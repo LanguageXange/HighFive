@@ -62,7 +62,7 @@ const Blog = ({ data }) => {
             </Nav.Item>
           </Nav>
         </Col>
-        <Col sm={10}>
+        <Col sm={{ span: 10, order: "last" }}>
           <BlogCardColumns>
             {filterposts.map(
               (

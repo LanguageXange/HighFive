@@ -1,9 +1,8 @@
 import styled from "styled-components"
 import Img from "gatsby-image"
-// url to access image: has to be inside public folder; netlify couldn't find it; switch to import
+// bgimage using url to access image: has to be inside public folder; netlify couldn't find it; switch to import
 export const IntroContainer = styled.div`
   height: 90vh;
-  overflow: hidden;
   padding: 45px;
   margin: 0 auto;
   display: flex;
@@ -11,6 +10,9 @@ export const IntroContainer = styled.div`
   justify-content: center;
   align-items: center;
   line-height: 1.8rem;
+  h1 {
+    font-size: 35px;
+  }
   p {
     padding: 25px;
     width: 80%;
@@ -35,11 +37,13 @@ export const IntroContainer = styled.div`
 
   @media screen and (max-width: 1000px) {
     padding: 10px;
-    line-height: 1.5rem;
+    h1 {
+      font-size: 28px;
+    }
     p {
-      padding: 25px;
+      padding: 10px;
       width: 100%;
-      font-size: 17px;
+      font-size: 14px;
     }
     ul {
       margin-bottom: 1em;
@@ -50,12 +54,15 @@ export const IntroContainer = styled.div`
   }
 `
 
-export const BgContainer = styled.img`
+export const BgContainer = styled(Img)`
+  position: absolute !important;
+  width: 90% !important;
+  /*height: 80% !important; */
+  opacity: 0.5;
   z-index: -5;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  opacity: 0.4;
+  @media screen and (max-width: 700px) {
+    width: 100% !important;
+  }
 `
 export const ImgContainer = styled(Img)`
   /*add custom styling for img if needed*/
