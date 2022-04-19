@@ -6,14 +6,12 @@ import {
   ImgContainer,
 } from "../pageStyle/index.styles"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import "bootstrap/dist/css/bootstrap.min.css"
-import bgimg from "../assets/sunset.jpg"
 
 import Head from "../components/header"
 const Home = ({ data }) => {
-  const { bio, image, about, bgImg } = data.allContentfulPerson.edges[0].node
+  const { bio, about } = data.allContentfulPerson.edges[0].node
   return (
     <Layout>
       <Head title="Home" />
@@ -27,8 +25,8 @@ const Home = ({ data }) => {
           <li>Learning Resources</li>
           <li>Positive Vibe</li>
         </ul>
-        <BgContainer fixed={bgImg.fixed} />
-        <ImgContainer fixed={image.fixed} alt="personal logo"></ImgContainer>
+      REMOVE IMAGE
+      
         <span>{about}</span>
       </IntroContainer>
     </Layout>
