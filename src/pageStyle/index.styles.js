@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Img from "gatsby-image"
+
 // bgimage using url to access image: has to be inside public folder; netlify couldn't find it; switch to import
 export const IntroContainer = styled.div`
   height: 90vh;
@@ -54,7 +54,7 @@ export const IntroContainer = styled.div`
   }
 `
 
-export const BgContainer = styled(Img)`
+export const BgContainer = styled.img`
   position: absolute !important;
   width: 90% !important;
   /*height: 80% !important; */
@@ -64,6 +64,6 @@ export const BgContainer = styled(Img)`
     width: 100% !important;
   }
 `
-export const ImgContainer = styled(Img)`
+export const ImgContainer = styled.img`
   /*add custom styling for img if needed*/
 `
